@@ -46,6 +46,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - SVProgressHUD (2.2.2)
 
 DEPENDENCIES:
   - ESTabBarController
@@ -53,6 +54,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - SVProgressHUD
 
 SPEC CHECKSUMS:
   ESTabBarController: f08fa16b154cfb9d8d42096f7d6d10b58775dbf5
@@ -66,7 +68,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
 
-PODFILE CHECKSUM: d9cc68bbf23d11631b39d92c12e39adb54eb0bcf
+PODFILE CHECKSUM: 40b59f9597c6fec95a702aba2ba9d178a32f009a
 
 COCOAPODS: 1.2.0
