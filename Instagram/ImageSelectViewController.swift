@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLImageEditorDelegate {
 
     @IBAction func handleLibraryButton(_ sender: Any) {
         // ライブラリ（カメラロール）を指定してピッカーを開く
@@ -43,6 +43,10 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
             
             // あとでCLImageEditorライブラリで加工する
             print("DEBUG_PRINT: image = \(image)")
+            // CLImageEditorにimageを渡して、加工画面を起動する。
+            let editor = CLImageEditor(image: image)!
+            editor.delegate = self
+            picker.pushViewController(editor, animated: true)
         }
     }
     

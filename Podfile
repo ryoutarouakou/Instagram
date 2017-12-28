@@ -12,5 +12,6 @@ target 'Instagram' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'SVProgressHUD'
+  pod 'CLImageEditor/AllTools'
 
 end
