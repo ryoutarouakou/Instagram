@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CLImageEditor
 
 class ImageSelectViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, CLImageEditorDelegate {
 
@@ -49,10 +50,18 @@ class ImageSelectViewController: UIViewController, UIImagePickerControllerDelega
             picker.pushViewController(editor, animated: true)
         }
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // 閉じる
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    // CLImageEditorで加工が終わったときに呼ばれるメソッド
+    func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
+        // 投稿の画面を開く
+        let postViewController = self.storyboard?.instantiateViewController(withIdentifier: "Post") as! PostViewController
+        postViewController.image = image!
+        editor.present(postViewController, animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
