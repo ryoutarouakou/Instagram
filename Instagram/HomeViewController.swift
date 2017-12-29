@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "Cell")
-
+        
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableViewAutomaticDimension
         // テーブル行の高さの概算値を設定しておく
@@ -108,21 +108,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return postArray.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // セルを取得してデータを設定する
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
-        cell.setPostData(postArray[indexPath.row])
-        
-        // セル内のボタンのアクションをソースコードで設定する
-        cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
-        
-        return cell
-    }
-
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return postArray.count
     }
