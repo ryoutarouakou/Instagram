@@ -295,13 +295,28 @@
                     <view key="view" contentMode="scaleToFill" id="52r-IZ-Z7Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nGC-bh-HTs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="642"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="nGC-bh-HTs" firstAttribute="top" secondItem="52r-IZ-Z7Y" secondAttribute="top" id="bnh-wV-Z4m"/>
+                            <constraint firstItem="nGC-bh-HTs" firstAttribute="bottom" secondItem="eLg-fx-nc4" secondAttribute="bottom" constant="-25" id="iHY-68-Poq"/>
+                            <constraint firstItem="nGC-bh-HTs" firstAttribute="leading" secondItem="eLg-fx-nc4" secondAttribute="leading" id="raI-1V-otJ"/>
+                            <constraint firstItem="nGC-bh-HTs" firstAttribute="trailing" secondItem="eLg-fx-nc4" secondAttribute="trailing" id="un4-3r-x3N"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="eLg-fx-nc4"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="nGC-bh-HTs" id="9qI-fS-cDz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQK-Ha-Ckg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1550" y="34"/>
+            <point key="canvasLocation" x="1549.5999999999999" y="33.733133433283363"/>
         </scene>
     </scenes>
     <resources>
