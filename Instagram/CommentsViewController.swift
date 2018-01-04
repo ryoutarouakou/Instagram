@@ -15,24 +15,30 @@ class CommentsViewController: UIViewController {
     
     @IBOutlet weak var commentsTextField: UITextField!
     
-    // 投稿ボタンをタップしたときに呼ばれるメソッド
+    var postData: [PostData] = []
+    
+    // コメント投稿ボタンをタップしたときに呼ばれるメソッド
     @IBAction func commentsPostButton(_ sender: Any) {
         // postDataに必要な情報を取得しておく
+        let uid = Auth.auth().currentUser?.uid
         let name = Auth.auth().currentUser?.displayName
-        // 辞書を作成してFirebaseに保存する
         
-        //let postRef = Database.database().reference().child(Const.PostPath)
-        //let postData = ["comments": [name!:commentsTextField.text]]
-        //postRef.childByAutoId().setValue(postData)
+        // Firebaseに保存するデータの準備
+        postData.comments.append(uid)
+        
+        // 増えたcommentsをFirebaseに保存する
+        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+        let comments = ["comments": [name : commentsTextField.text]]
+        postRef.updateChildValues(comments)
         
         // HUDで投稿完了を表示する
-        SVProgressHUD.showSuccess(withStatus: "投稿しました")
+        SVProgressHUD.showSuccess(withStatus: "コメント投稿しました")
         
         // 全てのモーダルを閉じる
         UIApplication.shared.keyWindow?.rootViewController?.dismiss(animated: true, completion: nil)
     }
     
-    // キャンセルボタンをタップしたときに呼ばれるメソッド
+    // コメントキャンセルボタンをタップしたときに呼ばれるメソッド
     @IBAction func commentsCancelButton(_ sender: Any) {
         // 画面を閉じる
         dismiss(animated: true, completion: nil)
@@ -41,7 +47,7 @@ class CommentsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

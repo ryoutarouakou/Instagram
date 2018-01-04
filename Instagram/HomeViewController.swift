@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-        
+    
     @IBOutlet weak var tableView: UITableView!
     
     var postArray: [PostData] = []
@@ -173,20 +173,14 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let indexPath = tableView.indexPathForRow(at: point)
         
         // 配列からタップされたインデックスのデータを取り出す
-        let postData = postArray[indexPath!.row]
+        let CommentViewController.postData = postArray[indexPath!.row]
         
-        // 投稿の画面を開く
+        // コメント投稿の画面を開く
         let commentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comments")
         self.present(commentsViewController!, animated: true, completion: nil)
-
-        // Firebaseに保存するデータの準備
-        //if let uid = Auth.auth().currentUser?.uid {
-            //postData.comments[uid:].append(uid)
-            // 増えたcommentsnameをFirebaseに保存する
-          //  let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-            //let comments = ["comments": postData.comments]
-            //postRef.updateChildValues(comments)
-            
-        }
+        
+        // TableViewを再表示する
+        self.tableView.reloadData()
+        
     }
 }
