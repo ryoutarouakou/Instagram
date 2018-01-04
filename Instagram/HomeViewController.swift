@@ -12,7 +12,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+        
     @IBOutlet weak var tableView: UITableView!
     
     var postArray: [PostData] = []
@@ -30,13 +30,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.allowsSelection = false
         
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "Cell")
+        tableView.register(nib, forCellReuseIdentifier: "postCell")
         
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableViewAutomaticDimension
         // テーブル行の高さの概算値を設定しておく
-        // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=100pt)」
-        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 100
+        // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=110pt)」
+        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 110
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -117,14 +117,17 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         cell.setPostData(postArray[indexPath.row])
         
-        // セル内のボタンのアクションをソースコードで設定する
-        cell.likeButton.addTarget(self, action:#selector(handleButton(_:forEvent:)), for: .touchUpInside)
+        // セル内のボタンのアクションをソースコードで設定する(likeButton)
+        cell.likeButton.addTarget(self, action:#selector(likehandleButton(_:forEvent:)), for: .touchUpInside)
+        
+        // セル内のボタンのアクションをソースコードで設定する(commentButton)
+        cell.commentButton.addTarget(self, action:#selector(commenthandleButton(_:forEvent:)), for: .touchUpInside)
         
         return cell
     }
     
-    // セル内のボタンがタップされた時に呼ばれるメソッド
-    @objc func handleButton(_ sender: UIButton, forEvent event: UIEvent) {
+    // セル内のボタンがタップされた時に呼ばれるメソッド(likeButton)
+    @objc func likehandleButton(_ sender: UIButton, forEvent event: UIEvent) {
         print("DEBUG_PRINT: likeボタンがタップされました。")
         
         // タップされたセルのインデックスを求める
@@ -156,6 +159,33 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
             let likes = ["likes": postData.likes]
             postRef.updateChildValues(likes)
+            
+        }
+    }
+    
+    // セル内のボタンがタップされた時に呼ばれるメソッド(commentButton)
+    @objc func commenthandleButton(_ sender: UIButton, forEvent event: UIEvent) {
+        print("DEBUG_PRINT: commentボタンがタップされました。")
+        
+        // タップされたセルのインデックスを求める
+        let touch = event.allTouches?.first
+        let point = touch!.location(in: self.tableView)
+        let indexPath = tableView.indexPathForRow(at: point)
+        
+        // 配列からタップされたインデックスのデータを取り出す
+        let postData = postArray[indexPath!.row]
+        
+        // 投稿の画面を開く
+        let commentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comments")
+        self.present(commentsViewController!, animated: true, completion: nil)
+
+        // Firebaseに保存するデータの準備
+        //if let uid = Auth.auth().currentUser?.uid {
+            //postData.comments[uid:].append(uid)
+            // 増えたcommentsnameをFirebaseに保存する
+          //  let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
+            //let comments = ["comments": postData.comments]
+            //postRef.updateChildValues(comments)
             
         }
     }

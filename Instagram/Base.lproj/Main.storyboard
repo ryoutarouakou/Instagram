@@ -288,6 +288,63 @@
             </objects>
             <point key="canvasLocation" x="1550" y="754"/>
         </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="O6s-I1-kT6">
+            <objects>
+                <viewController storyboardIdentifier="Comments" id="aNY-Lj-9tA" customClass="CommentsViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VSI-m9-FbO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJQ-O6-IcZ">
+                                <rect key="frame" x="40" y="40" width="77" height="30"/>
+                                <state key="normal" title="キャンセル"/>
+                                <connections>
+                                    <action selector="cancel:" destination="aNY-Lj-9tA" eventType="touchUpInside" id="OPk-nX-Fmh"/>
+                                    <action selector="commentsCancel:" destination="aNY-Lj-9tA" eventType="touchUpInside" id="dD4-m7-7DC"/>
+                                    <action selector="commentsCancelButton:" destination="aNY-Lj-9tA" eventType="touchUpInside" id="Ggt-2Z-kz9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uha-gu-P5h">
+                                <rect key="frame" x="243" y="40" width="92" height="30"/>
+                                <state key="normal" title="コメント投稿"/>
+                                <connections>
+                                    <action selector="commentPost:" destination="aNY-Lj-9tA" eventType="touchUpInside" id="Dqc-ul-LnD"/>
+                                    <action selector="commentsPost:" destination="aNY-Lj-9tA" eventType="touchUpInside" id="t5p-at-bSI"/>
+                                    <action selector="commentsPostButton:" destination="aNY-Lj-9tA" eventType="touchUpInside" id="WgQ-MZ-6PH"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z93-S4-VuB">
+                                <rect key="frame" x="40" y="110" width="295" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="NUb-tV-YWo"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Npu-c4-EC7" firstAttribute="trailing" secondItem="Z93-S4-VuB" secondAttribute="trailing" constant="40" id="04a-0E-ooZ"/>
+                            <constraint firstItem="uha-gu-P5h" firstAttribute="centerY" secondItem="BJQ-O6-IcZ" secondAttribute="centerY" id="8BY-2N-ny3"/>
+                            <constraint firstItem="Z93-S4-VuB" firstAttribute="leading" secondItem="Npu-c4-EC7" secondAttribute="leading" constant="40" id="9CM-O2-8Of"/>
+                            <constraint firstItem="Npu-c4-EC7" firstAttribute="trailing" secondItem="uha-gu-P5h" secondAttribute="trailing" constant="40" id="Ah6-LW-uif"/>
+                            <constraint firstItem="BJQ-O6-IcZ" firstAttribute="leading" secondItem="Npu-c4-EC7" secondAttribute="leading" constant="40" id="Fwy-hH-swq"/>
+                            <constraint firstItem="uha-gu-P5h" firstAttribute="top" secondItem="Npu-c4-EC7" secondAttribute="top" constant="20" id="TPf-bw-8db"/>
+                            <constraint firstItem="BJQ-O6-IcZ" firstAttribute="top" secondItem="Npu-c4-EC7" secondAttribute="top" constant="20" id="bqN-oS-Onf"/>
+                            <constraint firstItem="Z93-S4-VuB" firstAttribute="top" secondItem="BJQ-O6-IcZ" secondAttribute="bottom" constant="40" id="hNG-mO-X0s"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Npu-c4-EC7"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentsTextField" destination="Z93-S4-VuB" id="Q6Q-23-sDJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Vr-kd-XND" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2340" y="753"/>
+        </scene>
         <!--Home View Controller-->
         <scene sceneID="DnF-5J-Hx3">
             <objects>
@@ -312,11 +369,42 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="nGC-bh-HTs" id="9qI-fS-cDz"/>
+                        <segue destination="bXW-dn-cgI" kind="show" identifier="Show Comment Page" id="ZCb-t3-wFw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oQK-Ha-Ckg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1549.5999999999999" y="33.733133433283363"/>
+            <point key="canvasLocation" x="1550" y="34"/>
+        </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="tzw-Iz-3Vc">
+            <objects>
+                <viewController storyboardIdentifier="Comment" id="bXW-dn-cgI" customClass="CommentViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hlO-pF-kzV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VZC-lU-MsM">
+                                <rect key="frame" x="0.0" y="20" width="375" height="627"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VZC-lU-MsM" firstAttribute="top" secondItem="NHL-do-FrJ" secondAttribute="top" id="4pH-04-2Mq"/>
+                            <constraint firstItem="NHL-do-FrJ" firstAttribute="bottom" secondItem="VZC-lU-MsM" secondAttribute="bottom" constant="20" id="Ap2-Cu-k3L"/>
+                            <constraint firstItem="VZC-lU-MsM" firstAttribute="leading" secondItem="NHL-do-FrJ" secondAttribute="leading" id="R4L-sc-oRX"/>
+                            <constraint firstItem="NHL-do-FrJ" firstAttribute="trailing" secondItem="VZC-lU-MsM" secondAttribute="trailing" id="qVO-ym-ba3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NHL-do-FrJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="VZC-lU-MsM" id="PEd-DM-Yb6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cel-7A-ACQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2559" y="12"/>
         </scene>
     </scenes>
     <resources>
