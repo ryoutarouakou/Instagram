@@ -14,9 +14,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="732" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="732" id="KGk-i7-Jjw" customClass="PostTableViewCell" customModule="Instagram" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="413" height="732"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="413" height="731.5"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -44,12 +44,8 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lE5-yK-sMc">
-                        <rect key="frame" x="30" y="474" width="353" height="100"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="2n9-DY-o6V"/>
-                            <constraint firstAttribute="height" constant="100" id="HLw-WQ-c5e"/>
-                        </constraints>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lE5-yK-sMc">
+                        <rect key="frame" x="30" y="474" width="353" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -60,11 +56,6 @@
                             <constraint firstAttribute="width" constant="80" id="iq7-3q-pjo"/>
                         </constraints>
                         <state key="normal" title="コメント"/>
-                        <connections>
-                            <action selector="CommentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="oVr-32-Ige"/>
-                            <action selector="commentButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="VIE-n0-9hi"/>
-                            <action selector="commentLabel:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="g1y-id-fNg"/>
-                        </connections>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogk-xj-g8W">
                         <rect key="frame" x="220" y="433" width="163" height="21"/>
@@ -73,7 +64,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="udN-K7-kFy">
-                        <rect key="frame" x="30" y="584" width="353" height="21"/>
+                        <rect key="frame" x="30" y="504.5" width="353" height="206.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -94,6 +85,7 @@
                     <constraint firstAttribute="trailingMargin" secondItem="CZY-Bz-NN2" secondAttribute="trailing" id="bUo-2F-dof"/>
                     <constraint firstItem="lE5-yK-sMc" firstAttribute="top" secondItem="kmC-Xv-h3W" secondAttribute="bottom" constant="10" id="eI0-IE-3VI"/>
                     <constraint firstItem="lE5-yK-sMc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="fDb-hS-ZOy"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="udN-K7-kFy" secondAttribute="bottom" constant="10" id="nJc-1Z-Cfk"/>
                     <constraint firstItem="oXm-Kz-jYL" firstAttribute="centerY" secondItem="kmC-Xv-h3W" secondAttribute="centerY" id="q1c-UY-jP9"/>
                     <constraint firstItem="kmC-Xv-h3W" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="10" id="t7J-af-P0K"/>
                     <constraint firstItem="CZY-Bz-NN2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="10" id="uM2-cr-Ybv"/>
@@ -110,7 +102,7 @@
                 <outlet property="likeLabel" destination="oXm-Kz-jYL" id="L0V-p3-gnn"/>
                 <outlet property="postImageView" destination="CZY-Bz-NN2" id="sAw-un-Rye"/>
             </connections>
-            <point key="canvasLocation" x="-1183" y="-547"/>
+            <point key="canvasLocation" x="-1183.5" y="-547"/>
         </tableViewCell>
     </objects>
     <resources>

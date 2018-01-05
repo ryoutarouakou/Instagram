@@ -15,20 +15,25 @@ class CommentsViewController: UIViewController {
     
     @IBOutlet weak var commentsTextField: UITextField!
     
-    var postData: [PostData] = []
+    var postData: PostData?
     
     // コメント投稿ボタンをタップしたときに呼ばれるメソッド
     @IBAction func commentsPostButton(_ sender: Any) {
+        
+        //postDataをオプショナル型から非オプショナル型にキャスト
+        guard let postData = postData else {
+            return
+        }
+        
         // postDataに必要な情報を取得しておく
-        let uid = Auth.auth().currentUser?.uid
         let name = Auth.auth().currentUser?.displayName
         
         // Firebaseに保存するデータの準備
-        postData.comments.append(uid)
+        postData.comments.append([name! : commentsTextField.text!])
         
         // 増えたcommentsをFirebaseに保存する
-        let postRef = Database.database().reference().child(Const.PostPath).child(postData.id!)
-        let comments = ["comments": [name : commentsTextField.text]]
+        let postRef = Database.database().reference().child(Const.PostPath).child((postData.id!))
+        let comments = ["comments": postData.comments]
         postRef.updateChildValues(comments)
         
         // HUDで投稿完了を表示する

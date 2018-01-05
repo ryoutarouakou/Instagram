@@ -30,13 +30,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.allowsSelection = false
         
         let nib = UINib(nibName: "PostTableViewCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "postCell")
+        tableView.register(nib, forCellReuseIdentifier: "Cell")
         
         // テーブル行の高さをAutoLayoutで自動調整する
         tableView.rowHeight = UITableViewAutomaticDimension
         // テーブル行の高さの概算値を設定しておく
         // 高さ概算値 = 「縦横比1:1のUIImageViewの高さ(=画面幅)」+「いいねボタン、キャプションラベル、その他余白の高さの合計概算(=110pt)」
-        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 110
+        tableView.estimatedRowHeight = UIScreen.main.bounds.width + 200
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -105,10 +105,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 observing = false
             }
         }
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("DEBUG_PRINT: セルの数は",postArray.count)
         return postArray.count
     }
     
@@ -116,6 +116,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // セルを取得してデータを設定する
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! PostTableViewCell
         cell.setPostData(postArray[indexPath.row])
+        print("DEBUG_PRINT: セルを取得してデータを設定する")
         
         // セル内のボタンのアクションをソースコードで設定する(likeButton)
         cell.likeButton.addTarget(self, action:#selector(likehandleButton(_:forEvent:)), for: .touchUpInside)
@@ -173,14 +174,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let indexPath = tableView.indexPathForRow(at: point)
         
         // 配列からタップされたインデックスのデータを取り出す
-        let CommentViewController.postData = postArray[indexPath!.row]
+        let postData = postArray[indexPath!.row]
         
-        // コメント投稿の画面を開く
-        let commentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comments")
-        self.present(commentsViewController!, animated: true, completion: nil)
-        
+        // postDataの情報をCVCに渡し、コメント投稿の画面を開く
+        let commentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comments") as! CommentsViewController
+        commentsViewController.postData = postData
+        self.present(commentsViewController, animated: true, completion: nil)
+
         // TableViewを再表示する
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
         
     }
 }
