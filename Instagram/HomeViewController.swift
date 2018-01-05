@@ -138,6 +138,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
+        print("DEBUG_PRINT: HomeVC.postDataのlikeインデックスは",postData)
         
         // Firebaseに保存するデータの準備
         if let uid = Auth.auth().currentUser?.uid {
@@ -175,6 +176,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // 配列からタップされたインデックスのデータを取り出す
         let postData = postArray[indexPath!.row]
+        print("DEBUG_PRINT: HomeVC.postDataのcommentインデックスは",postData)
         
         // postDataの情報をCVCに渡し、コメント投稿の画面を開く
         let commentsViewController = self.storyboard?.instantiateViewController(withIdentifier: "Comments") as! CommentsViewController

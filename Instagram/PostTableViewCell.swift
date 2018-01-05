@@ -48,8 +48,11 @@ class PostTableViewCell: UITableViewCell {
             let buttonImage = UIImage(named: "like_none")
             self.likeButton.setImage(buttonImage, for: .normal)
         }
-        
-        self.commentLabel.text = "\(postData.comments)"
+        for comment in postData.comments {
+            let userName = comment["userName"]
+            let commentMessage = comment["commentMessage"]
+            self.commentLabel.text = "\(userName!) : \(commentMessage!)"
+        }
     }
     
 }

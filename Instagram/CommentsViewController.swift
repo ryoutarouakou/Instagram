@@ -27,14 +27,20 @@ class CommentsViewController: UIViewController {
         
         // postDataに必要な情報を取得しておく
         let name = Auth.auth().currentUser?.displayName
+        print("DEBUG_PRINT: commentsVC.postDataのインデックス1は",postData)
+        print("DEBUG_PRINT: commentsVC.postDataのnameは",name!)
         
         // Firebaseに保存するデータの準備
-        postData.comments.append([name! : commentsTextField.text!])
+        postData.comments.append(["userName":name!, "commentMessage":commentsTextField.text!])
+        print("DEBUG_PRINT: commentsVC.postDataのインデックス2は",postData)
+        print("DEBUG_PRINT: commentsVC.postDataのcommentsTextField.text!は",commentsTextField.text!)
         
         // 増えたcommentsをFirebaseに保存する
         let postRef = Database.database().reference().child(Const.PostPath).child((postData.id!))
         let comments = ["comments": postData.comments]
         postRef.updateChildValues(comments)
+        print("DEBUG_PRINT: commentsVC.postDataのインデックス3は",postData)
+        print("DEBUG_PRINT: commentsVC.commentsは",comments)
         
         // HUDで投稿完了を表示する
         SVProgressHUD.showSuccess(withStatus: "コメント投稿しました")
