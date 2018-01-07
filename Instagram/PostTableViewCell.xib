@@ -50,15 +50,16 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2V-nQ-X00">
-                        <rect key="frame" x="130" y="429.5" width="100" height="30"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2V-nQ-X00">
+                        <rect key="frame" x="291" y="424.5" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="100" id="iq7-3q-pjo"/>
+                            <constraint firstAttribute="height" constant="40" id="1D2-8N-DBV"/>
+                            <constraint firstAttribute="width" constant="40" id="iq7-3q-pjo"/>
                         </constraints>
-                        <state key="normal" title="コメント投稿"/>
+                        <state key="normal" image="comment"/>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ogk-xj-g8W">
-                        <rect key="frame" x="240" y="433" width="143" height="21"/>
+                        <rect key="frame" x="341" y="433" width="42" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -75,13 +76,12 @@
                     <constraint firstAttribute="trailingMargin" secondItem="udN-K7-kFy" secondAttribute="trailing" constant="10" id="7Mb-Ez-TTx"/>
                     <constraint firstItem="X2V-nQ-X00" firstAttribute="centerY" secondItem="oXm-Kz-jYL" secondAttribute="centerY" id="Efa-n3-KvM"/>
                     <constraint firstItem="oXm-Kz-jYL" firstAttribute="leading" secondItem="kmC-Xv-h3W" secondAttribute="trailing" constant="10" id="Eq9-33-h7J"/>
-                    <constraint firstItem="X2V-nQ-X00" firstAttribute="leading" secondItem="oXm-Kz-jYL" secondAttribute="trailing" constant="10" id="Fv9-Ir-1Pw"/>
                     <constraint firstItem="ogk-xj-g8W" firstAttribute="centerY" secondItem="kmC-Xv-h3W" secondAttribute="centerY" id="GTE-tv-Yud"/>
-                    <constraint firstItem="ogk-xj-g8W" firstAttribute="leading" secondItem="X2V-nQ-X00" secondAttribute="trailing" constant="10" id="LR4-df-Am9"/>
                     <constraint firstItem="udN-K7-kFy" firstAttribute="top" secondItem="lE5-yK-sMc" secondAttribute="bottom" constant="10" id="NvZ-n6-NSE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ogk-xj-g8W" secondAttribute="trailing" constant="10" id="Pgw-Aw-4Z8"/>
                     <constraint firstItem="CZY-Bz-NN2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="RqZ-cJ-o1O"/>
                     <constraint firstAttribute="bottomMargin" secondItem="udN-K7-kFy" secondAttribute="bottom" constant="10" id="YfX-aG-ACs"/>
+                    <constraint firstItem="ogk-xj-g8W" firstAttribute="leading" secondItem="X2V-nQ-X00" secondAttribute="trailing" constant="10" id="ahV-Wg-Wlv"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lE5-yK-sMc" secondAttribute="trailing" constant="10" id="bRP-c1-4w7"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CZY-Bz-NN2" secondAttribute="trailing" id="bUo-2F-dof"/>
                     <constraint firstItem="lE5-yK-sMc" firstAttribute="top" secondItem="kmC-Xv-h3W" secondAttribute="bottom" constant="10" id="eI0-IE-3VI"/>
@@ -102,10 +102,11 @@
                 <outlet property="likeLabel" destination="oXm-Kz-jYL" id="L0V-p3-gnn"/>
                 <outlet property="postImageView" destination="CZY-Bz-NN2" id="sAw-un-Rye"/>
             </connections>
-            <point key="canvasLocation" x="-1183.5" y="-547"/>
+            <point key="canvasLocation" x="-1659" y="-541"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="comment" width="128" height="128"/>
         <image name="like_none" width="40" height="40"/>
     </resources>
 </document>

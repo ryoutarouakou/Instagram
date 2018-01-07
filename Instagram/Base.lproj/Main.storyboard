@@ -202,11 +202,6 @@
                                     <action selector="handleCancellButton:" destination="WY4-rQ-6nU" eventType="touchUpInside" id="j6X-vk-v86"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zqj-TN-BJH">
-                                <rect key="frame" x="164" y="377" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -323,10 +318,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Npu-c4-EC7" firstAttribute="trailing" secondItem="Z93-S4-VuB" secondAttribute="trailing" constant="40" id="04a-0E-ooZ"/>
+                            <constraint firstItem="BJQ-O6-IcZ" firstAttribute="leading" secondItem="Npu-c4-EC7" secondAttribute="leading" constant="40" id="5w4-wF-sTO"/>
                             <constraint firstItem="uha-gu-P5h" firstAttribute="centerY" secondItem="BJQ-O6-IcZ" secondAttribute="centerY" id="8BY-2N-ny3"/>
                             <constraint firstItem="Z93-S4-VuB" firstAttribute="leading" secondItem="Npu-c4-EC7" secondAttribute="leading" constant="40" id="9CM-O2-8Of"/>
                             <constraint firstItem="Npu-c4-EC7" firstAttribute="trailing" secondItem="uha-gu-P5h" secondAttribute="trailing" constant="40" id="Ah6-LW-uif"/>
-                            <constraint firstItem="BJQ-O6-IcZ" firstAttribute="leading" secondItem="Npu-c4-EC7" secondAttribute="leading" constant="40" id="Fwy-hH-swq"/>
+                            <constraint firstItem="Z93-S4-VuB" firstAttribute="top" secondItem="uha-gu-P5h" secondAttribute="bottom" constant="40" id="CXj-5H-nFz"/>
                             <constraint firstItem="uha-gu-P5h" firstAttribute="top" secondItem="Npu-c4-EC7" secondAttribute="top" constant="20" id="TPf-bw-8db"/>
                             <constraint firstItem="BJQ-O6-IcZ" firstAttribute="top" secondItem="Npu-c4-EC7" secondAttribute="top" constant="20" id="bqN-oS-Onf"/>
                             <constraint firstItem="Z93-S4-VuB" firstAttribute="top" secondItem="BJQ-O6-IcZ" secondAttribute="bottom" constant="40" id="hNG-mO-X0s"/>
