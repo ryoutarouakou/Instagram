@@ -9,13 +9,13 @@
 import UIKit
 
 class PostTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var likeLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var captionLabel: UILabel!
-
+    
     @IBOutlet weak var commentButton: UIButton!
     @IBOutlet weak var commentLabel: UILabel!
     
@@ -23,13 +23,16 @@ class PostTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         // Configure the view for the selected state
     }
     
     func setPostData(_ postData: PostData) {
+        
+        var commentUnite = ""
+        
         self.postImageView.image = postData.image
         
         self.captionLabel.text = "\(postData.name!) : \(postData.caption!)"
@@ -51,8 +54,9 @@ class PostTableViewCell: UITableViewCell {
         for comment in postData.comments {
             let userName = comment["userName"]
             let commentMessage = comment["commentMessage"]
-            self.commentLabel.text = "\(userName!) : \(commentMessage!)"
+            commentUnite += "\(userName!) : \(commentMessage!)\n"
         }
+        self.commentLabel.text = commentUnite
     }
     
 }
